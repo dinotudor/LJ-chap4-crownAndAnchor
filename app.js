@@ -4,9 +4,8 @@ BASIC CONDITIONS:
 Player initial stack, 50. If double stack, player quit. If Stack less then 100 gamble until his broke
 
 */
-let funds = 50;
-let bets = {};
-let hand = [];
+
+// HELPER FUNCTIONS
 
 function rand(m, n) {
   return m + Math.floor((n - m +1) * Math.random());
@@ -15,8 +14,29 @@ function rand(m, n) {
 function randFace () {
   return ["crown", "anchor", "heart", "spade", "club", "diamond"][rand(0,5)];
 }
-
 console.log(randFace());
+
+let funds = 50;
+let hand = [];
+const bets = {
+  crown: 0,
+  anchor: 0,
+  heart: 0,
+  spade: 0,
+  club: 0,
+  diamond: 0,
+};
+
+let totalBet = rand(1, funds);
+console.log(totalBet);
+if (totalBet === 7) {
+  totalBet = funds;
+  bets.heart = totalBet
+} else {
+  console.log(bets)
+}
+
+
 
 // Object property assignment
 bets['heart'] = 5

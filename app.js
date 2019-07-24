@@ -36,7 +36,18 @@ if (totalBet === 7) {
   console.log(bets)
 }
 
+let remaining = totalBet;
+do {
+  let bet = rand(1, remaining);
+  let face = randFace();
+  bets[face] = bets[face] + bet;
+  remaining -= bet
+} while (remaining > 0)
 
+for(let roll = 0; roll < 3; roll++) {
+  hand.push(randFace());
+}
+console.log(remaining)
 
 // Object property assignment
 bets['heart'] = 5

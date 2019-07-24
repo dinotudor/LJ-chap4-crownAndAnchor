@@ -5,8 +5,6 @@ Player initial stack, 50. If double stack, player quit. If Stack less then 100 g
 
 */
 
-// HELPER FUNCTIONS
-
 function rand(m, n) {
   return m + Math.floor((n - m +1) * Math.random());
 }
@@ -47,7 +45,12 @@ do {
 for(let roll = 0; roll < 3; roll++) {
   hand.push(randFace());
 }
-console.log(remaining)
+
+let winnings = 0;
+for(let die = 0; die < hand.length; die++) {
+  let face = hand[die];
+  if(bets[face] > 0) winnings += bets[face]
+}
 
 // Object property assignment
 bets['heart'] = 5
